@@ -54,7 +54,7 @@
                 <ul class="menu">
                     <#if principal??>
                     <li class="dropdown yamm-fw">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">${principal.name}さん<b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">あなたのID:${principal.name}<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                                 <div class="yamm-content">
                                     <div class="row">
@@ -88,7 +88,7 @@
                     <div class="modal-body">
                         <form action="/login" method="post">
                             <div class="form-group">
-                                <input type="text" name="account" class="form-control" id="account-modal" placeholder="account">
+                                <input type="text" name="account" class="form-control" id="account-modal" placeholder="account(Id)">
                             </div>
                             <div class="form-group">
                                 <input type="password" name="password" class="form-control" id="password-modal" placeholder="password">

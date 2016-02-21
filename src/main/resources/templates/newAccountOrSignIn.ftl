@@ -71,7 +71,7 @@
 
                         <form action="/login" method="post">
                             <div class="form-group">
-                                <label for="name">Account</label>
+                                <label for="name">Account(Id)</label>
                                 <input type="text" name="account" class="form-control" id="account">
                             </div>
                             <div class="form-group">

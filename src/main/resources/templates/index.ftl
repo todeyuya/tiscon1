@@ -79,16 +79,16 @@ _________________________________________________________ -->
                 </div>
             </div>
         </div>
-        <div class="container">
+     <div class="container">
             <div class="product-slider">
                 <#list movieRank as item>
                     <div class="item">
                         <div class="product">
-                            <div class="flip-container">
+                           <div class="flip-container">
                                 <div align="center">
                                     <p><h4>${item?counter}位</h4></p>
                                     <div class="flipper">
-                                        <div class="front">
+                                       <div class="front">
                                             <a href="/detail?genreId=33&subgenreId=&itemId=${item.id}">
                                                 <img src=${item.image} alt=${item.title?html} class="img-responsive img-index-movie">
                                             </a>
@@ -114,9 +114,9 @@ _________________________________________________________ -->
                     </div>
                 </#list>
 
-            </div>
+           </div>
             <!-- /.product-slider -->
-        </div>
+         </div>
         <!-- /.container -->
 
         <div class="box">
@@ -131,7 +131,7 @@ _________________________________________________________ -->
                 <#list musicRank as item>
                     <div class="item">
                         <div class="product">
-                            <div class="flip-container">
+                           <div class="flip-container">
                                 <div align="center">
                                     <p><h4>${item?counter}位</h4></p>
                                     <div class="flipper">

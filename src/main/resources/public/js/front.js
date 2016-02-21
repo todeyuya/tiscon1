@@ -148,12 +148,14 @@ function carousels() {
 	navigation: true, // Show next and prev buttons
 	slideSpeed: 300,
 	paginationSpeed: 400,
+	paginationNumbers: true,
 	afterInit: function() {
 	    $('.product-slider .item').css('visibility', 'visible');
 	}
     });
 
     $('#main-slider').owlCarousel({
+    paginationNumbers: true,
 	navigation: true, // Show next and prev buttons
 	slideSpeed: 300,
 	paginationSpeed: 400,

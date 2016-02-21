@@ -12,6 +12,7 @@ import tiscon1.repository.CategoryRepository;
  */
 @Controller
 public class IndexController {
+
     private static final String MOVIE_ID = "33";
     private static final String MUSIC_ID = "34";
 
@@ -21,8 +22,10 @@ public class IndexController {
     @RequestMapping("/")
     public String index(Model model) {
         try {
-            model.addAttribute("movieRank", categoryRepository.findTop10(MOVIE_ID, null));
-            model.addAttribute("musicRank", categoryRepository.findTop10(MUSIC_ID, null));
+
+                model.addAttribute("movieRank", categoryRepository.findTop10(MOVIE_ID, null));
+                model.addAttribute("musicRank", categoryRepository.findTop10(MUSIC_ID, null));
+
         } catch (Exception e) {
             throw new SystemException();
         }

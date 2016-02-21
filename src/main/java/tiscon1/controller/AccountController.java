@@ -20,12 +20,14 @@ import tiscon1.model.UserPrincipal;
 import tiscon1.repository.CustomerRepository;
 
 import javax.servlet.http.HttpSession;
+/////
 
+/////
 /**
  * @author kawasima
  */
 @Controller
-public class AccountController {
+public class AccountController{
     @Autowired
     CustomerRepository customerRepository;
 
@@ -38,12 +40,12 @@ public class AccountController {
     public String login(@Validated LoginForm form, BindingResult bindingResult, HttpSession session) {
         Customer customer = customerRepository.findOne(Specifications
                 .where((Specification<Customer>) (root, query, cb) ->
-                        cb.equal(root.get("name"), form.getAccount()))
+                        cb.equal(root.get("id"), form.getAccount()))
                 .and((root, query, cb) ->
                         cb.equal(root.get("password"), form.getPassword())
                 ));
         if (customer != null) {
-            session.setAttribute("principal", new UserPrincipal(customer.getName()));
+            session.setAttribute("principal", new UserPrincipal(String.valueOf(customer.getId())));
             return "redirect:/my/account?id=" + customer.getId();
         } else {
             return "newAccountOrSignIn";
@@ -67,15 +69,23 @@ public class AccountController {
         return "newAccountOrSignIn";
     }
 
+
+
+
+
+
     @RequestMapping(value="/register", method=RequestMethod.POST)
     public String register(@Validated AccountRegisterForm form, BindingResult bindingResult
     , HttpSession session) {
         if (bindingResult.hasErrors()) {
             return "newAccountOrSignIn";
         }
+
+
         Customer customer = new Customer(form.getName(), form.getEmail(), form.getPassword());
         customerRepository.save(customer);
-        UserPrincipal principal = new UserPrincipal(form.getName());
+
+        UserPrincipal principal = new UserPrincipal(String.valueOf(customer.getId()));
         session.setAttribute("principal", principal);
         return "redirect:/my/account?id=" + customer.getId();
     }
