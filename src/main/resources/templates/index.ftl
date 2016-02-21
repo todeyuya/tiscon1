@@ -22,6 +22,74 @@
         </div>
     </div>
 
+
+<#assign count = 0>
+
+
+    <!-- *** Ranking Top ***
+    _________________________________________________________ -->
+        <div id="advantages">
+
+            <div class="container">
+                <div class="same-height-row">
+                    <div class="ranking-row">
+                        <div class="col-sm-4">
+                            <div class="box same-height clickable box2">
+
+                                 <p class="ranking-text">おすすめの映画</p>
+                                 <#list movieRank as item>
+                                    <div class="item">
+                                        <div align="center">
+                                            <#if count == 0>
+                                                <a><img src=${item.image} class="img-rank"></a>
+                                                    <div class="text">
+                                                        <h3><a href="/detail?genreId=33&subgenreId=&itemId=${item.id}">${item.title?html}</a></h3>
+                                                        <p class="price">￥${item.price}</p>
+                                                    </div>
+                                                <!-- /.text -->
+                                                <#assign count = 1>
+                                            </#if>
+                                        </div>
+                                    </div>
+                                 </#list>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="box same-height clickable  box2">
+                                <p class="ranking-text">おすすめの音楽</p>
+                                <#list musicRank as item>
+                                    <div class="item">
+                                        <div align="center">
+                                            <#if count == 1>
+                                                <a><img src=${item.image} class="img-rank"></a>
+                                                   <div class="text" "ranking-text">
+                                                       <h3><a href="/detail?genreId=33&subgenreId=&itemId=${item.id}">${item.title?html}</a></h3>
+                                                       <p class="price">￥${item.price}</p>
+                                                    </div>
+                                                    <!-- /.text -->
+                                            <#assign count = 2>
+                                            </#if>
+                                        </div>
+                                    </div>
+                                </#list>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /#advantages -->
+
+        <!-- *** ADVANTAGES END *** -->
+
+
+
     <!-- *** ADVANTAGES HOMEPAGE ***
 _________________________________________________________ -->
     <div id="advantages">
